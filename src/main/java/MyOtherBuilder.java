@@ -24,6 +24,6 @@ public class MyOtherBuilder extends MyBuilder<MyOtherBuilder> {
     }
 
     public String get() {
-        return string3;
+        return string1 + " ... " + string2 + " ... " + string3;
     }
 }

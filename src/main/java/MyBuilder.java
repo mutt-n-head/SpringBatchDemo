@@ -1,7 +1,7 @@
 /**
  * Created by lisner on 10/7/2015.
  */
-public class MyBuilder<B extends MyBuilder<B>> {
+public abstract class MyBuilder<B extends MyBuilder<B>> {
     protected String string1;
     protected String string2;
 
@@ -25,7 +25,7 @@ public class MyBuilder<B extends MyBuilder<B>> {
     }
 
     public static void main(String[] _args) {
-        MyBuilder aBuilder = new MyBuilder();
+        MyBuilder aBuilder = new MyOtherBuilder();
         String outString = aBuilder
             .setString1("FirstString")
             .setString2("SecondString")
@@ -37,7 +37,10 @@ public class MyBuilder<B extends MyBuilder<B>> {
         // BUT you call .setString1 on it, which returns B extends MyBuilder<B>
         // otherBuilder.setString3("3").setString1("1").setString2("2");
         System.out.println(otherBuilder.setString3("3").get());
-        otherBuilder.setString1("1").setString2("2").setString3("3").get();
-
+        otherBuilder
+            .setString1("1")
+            .setString2("2")
+            .setString3("3")
+            .get();
     }
 }
